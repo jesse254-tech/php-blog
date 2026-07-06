@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/includes/db.php';
+require __DIR__ . '/includes/functions.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
@@ -23,6 +24,6 @@ require __DIR__ . '/includes/header.php';
     <span class="date"><?= date('F j, Y', strtotime($post['created_at'])) ?></span>
     <h1><?= htmlspecialchars($post['title']) ?></h1>
     <img src="images/<?= htmlspecialchars($post['image']) ?>" alt="<?= htmlspecialchars($post['title']) ?>">
-    <div class="content"><?= nl2br(htmlspecialchars($post['body'])) ?></div>
+    <div class="content"><?= render_paragraphs($post['body']) ?></div>
   </article>
 <?php require __DIR__ . '/includes/footer.php'; ?>
