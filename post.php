@@ -21,7 +21,7 @@ require __DIR__ . '/includes/header.php';
 ?>
   <article class="single">
     <a class="back" href="index.php">← All posts</a>
-    <span class="date"><?= date('F j, Y', strtotime($post['created_at'])) ?></span>
+    <span class="date"><?= date('F j, Y', strtotime($post['created_at'])) ?> · <?= reading_time($post['body']) ?></span>
     <h1><?= htmlspecialchars($post['title']) ?></h1>
     <img src="images/<?= htmlspecialchars($post['image']) ?>" alt="<?= htmlspecialchars($post['title']) ?>">
     <div class="content"><?= render_paragraphs($post['body']) ?></div>

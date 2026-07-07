@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/includes/db.php';
+require __DIR__ . '/includes/functions.php';
 
 $q = trim($_GET['q'] ?? '');
 $perPage = 4;
@@ -61,7 +62,7 @@ require __DIR__ . '/includes/header.php';
             <img src="images/<?= htmlspecialchars($post['image']) ?>" alt="<?= htmlspecialchars($post['title']) ?>">
           </a>
           <div class="post-card-body">
-            <span class="date"><?= date('F j, Y', strtotime($post['created_at'])) ?></span>
+            <span class="date"><?= date('F j, Y', strtotime($post['created_at'])) ?> · <?= reading_time($post['body']) ?></span>
             <h2><a href="post.php?id=<?= (int) $post['id'] ?>"><?= htmlspecialchars($post['title']) ?></a></h2>
             <p><?= htmlspecialchars($post['excerpt']) ?></p>
             <a class="read-more" href="post.php?id=<?= (int) $post['id'] ?>">Read more →</a>
