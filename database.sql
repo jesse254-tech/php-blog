@@ -27,6 +27,14 @@ CREATE TABLE IF NOT EXISTS messages (
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS comments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  post_id INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  body TEXT NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 INSERT INTO posts (title, slug, excerpt, body, image, created_at) VALUES
 ('Escape to the Maasai Mara', 'maasai-mara',
  'Golden plains, endless skies, and the great migration up close.',
